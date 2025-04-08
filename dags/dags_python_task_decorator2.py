@@ -4,7 +4,7 @@ from pprint import pprint
 from airflow.operators.python import PythonOperator
 
 with DAG(
-    dag_id="dags_python_task_decorator",
+    dag_id="dags_python_task_decorator2",
     schedule="0 2 * * 1",
     start_date=pendulum.datetime(2025, 1, 1, tz="Asia/Seoul"),
     catchup=False,
@@ -16,6 +16,8 @@ with DAG(
 
     python_task_1 = PythonOperator(
         task_id='python_task_1',
-        python_callable=print_context, op_args=['task_decorator 실행'])
+        python_callable=print_context, 
+        op_args=['task_decorator 실행']
+        )
 
     python_task_1
