@@ -16,8 +16,6 @@ with DAG(
 
     python_task_1 = PythonOperator(
         task_id='python_task_1',
-        python_callable=print_context, 
-        op_args=['task_decorator 실행']
-        )
+        python_callable=print_context, op_args=['task_decorator 실행'])
 
     python_task_1
