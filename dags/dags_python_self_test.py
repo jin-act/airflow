@@ -15,8 +15,8 @@ with DAG(
     def regist(name, sex, *args, **kwargs):
         print(name)
         print(sex)
-        print(*args)
-        print(**kwargs)
+        print(args)
+        print(kwargs)
 
     test_py_task_1 = PythonOperator(
         task_id='python_task_1',
