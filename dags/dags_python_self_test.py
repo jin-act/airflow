@@ -11,12 +11,21 @@ with DAG(
     catchup=False,
 ) as dag:
     
-    @task(task_id="test_py_task_1")
     # [START howto_operator_python]
     def regist(name, sex, *args, **kwargs):
         print(name)
         print(sex)
         print(*args)
         print(**kwargs)
+
+    test_py_task_1 = PythonOperator(
+        task_id='python_task_1',
+        python_callable=regist, 
+        op_args=['jsw','man','korea','seoul'],
+        op_kwargs={
+            'phone': '010',
+            'email': 'jswsunwoo123@gmail.com'
+            }
+        )
 
     test_py_task_1 = regist('jsw','man','korea','seoul',phone='010',email='jswsunwoo123@gmail.com')
