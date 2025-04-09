@@ -11,7 +11,7 @@ with DAG(
     catchup=False,
 ) as dag:
     
-    @task(task_id="python_task_1")
+    @task(task_id="test_py_task_1")
     # [START howto_operator_python]
     def regist(name, sex, *args, **kwargs):
         print(name)
@@ -19,4 +19,4 @@ with DAG(
         print(*args)
         print(**kwargs)
 
-    python_task_1 = regist('jsw','man','korea','seoul',phone='010',email='jswsunwoo123@gmail.com')
+    test_py_task_1 = regist('jsw','man','korea','seoul',phone='010',email='jswsunwoo123@gmail.com')
