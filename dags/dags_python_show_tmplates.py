@@ -8,7 +8,7 @@ with DAG(
     dag_id="dags_python_task_decorator",
     schedule="30 9 * * *",
     start_date=pendulum.datetime(2025, 3, 28, tz="Asia/Seoul"),
-    catchup=true,
+    catchup=True,
 ) as dag:
     
     @task(task_id="python_task")
