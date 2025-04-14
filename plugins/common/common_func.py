@@ -19,5 +19,3 @@ def regist2(name, sex, *args, **kwargs):
 def python_fuction1(start_date, end_date, **kwargs):
     print(start_date)
     print(end_date)
-
-    # test 메시지 적용입니당
