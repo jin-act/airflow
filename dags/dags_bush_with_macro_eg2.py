@@ -3,7 +3,7 @@ import pendulum
 from airflow.operators.bash import BashOperator
 
 with DAG(
-    dag_id="dags_bash_with_complate",
+    dag_id="dags_bush_with_macro_eg2",
     schedule="10 0 L * 6#2",
     start_date=pendulum.datetime(2025, 4, 1, tz="Asia/Seoul"),
     catchup=False,
