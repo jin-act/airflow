@@ -10,7 +10,6 @@ with DAG(
     catchup=False,
 ) as dag:
     
-    # [START howto_operator_python]
     def print_context(some_input):
         print(some_input)
 

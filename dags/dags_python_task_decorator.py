@@ -15,5 +15,5 @@ with DAG(
     # [START howto_operator_python]
     def print_context(some_input):
         print(some_input)
-
+  
     python_task_1 = print_context('task_decorator 실행')
