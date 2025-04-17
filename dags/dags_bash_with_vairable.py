@@ -9,7 +9,7 @@ with DAG(
     start_date=pendulum.datetime(2025, 4, 1, tz="Asia/Seoul"),
     catchup=False,
 ) as dag:
-    var_value = Variable.get("semple_key")
+    var_value = Variable.get("sample_key")
 
     bash_var_1 = BashOperator(
         task_id='bash_var_1',
