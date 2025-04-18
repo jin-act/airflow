@@ -1,6 +1,5 @@
 from airflow import DAG
 from datetime import datetime
-from airflow.operators.email import EmailOperator
 from airflow.operators.python import BranchPythonOperator
 from airflow.operators.python import PythonOperator
 
