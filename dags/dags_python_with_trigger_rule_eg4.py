@@ -4,7 +4,7 @@ from airflow.decorators import task
 from airflow.operators.bash import BashOperator
 
 with DAG(
-    dag_id="dags_python_with_trigger_rule_eg2",
+    dag_id="dags_python_with_trigger_rule_eg4",
     start_date=pendulum.datetime(2025, 4, 1, tz="Asia/Seoul"),
     schedule=None,
     catchup=False
