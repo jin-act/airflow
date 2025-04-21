@@ -17,6 +17,8 @@ with DAG(
             
             print(context)
             #print(context)는 실습 내용과는 관련 없지만, 사용하지 않는 context가 어떤 값인지 확인하기 위해 코딩
+            #context에는 kwargs와 같이 data_interval_start, end 등 그에 관련된 값들이 들어 있다.
+            #만약 해당 값들을 사용할 필요가 있다면, context를 호출하여 사용하면 된다.
             
             item_lst = ['A', 'B', 'C']
             selected_item = random.choice(item_lst)

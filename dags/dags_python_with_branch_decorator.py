@@ -7,7 +7,7 @@ with DAG(
     dag_id="dags_python_with_branch_decorator",
     start_date=datetime(2025, 2, 1),
     schedule=None,
-    catchup=False,
+    catchup=False
     ) as dag:
     
     @task.branch(task_id='python_branch_task')
