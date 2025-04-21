@@ -32,9 +32,9 @@ with DAG(
     def common_task():
         print('정상처리')
     
-    task_b = common_task.override(task_id='task_b')
-    task_c = common_task.override(task_id='task_c')
-    task_d = common_task.override(task_id='task_d',trigger_rule='none_skipped')
+    task_b = common_task.override(task_id='task_b')()
+    task_c = common_task.override(task_id='task_c')()
+    task_d = common_task.override(task_id='task_d',trigger_rule='none_skipped')()
     
 
     random_branch() >> [task_a, task_b, task_c] >> task_d
