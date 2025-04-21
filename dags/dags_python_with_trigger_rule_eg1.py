@@ -16,16 +16,16 @@ with DAG(
         bash_command='echo upstream1'
     )
     
-@task(task_id='python_upstream_1')
-def python_upstream_1():
-    raise AirflowException('downstream_1 Exception!')
+    @task(task_id='python_upstream_1')
+    def python_upstream_1():
+        raise AirflowException('downstream_1 Exception!')
 
-@task(task_id='python_upstream_2')
-def python_upstream_2():
-    print('정상처리')
+    @task(task_id='python_upstream_2')
+    def python_upstream_2():
+        print('정상처리')
 
-@task(task_id='python_downstream_1', trigger_rule='all_done')
-def python_downstream_1():
-    print('정상처리')
+    @task(task_id='python_downstream_1', trigger_rule='all_done')
+    def python_downstream_1():
+        print('정상처리')
 
-[bash_upstream_1, python_upstream_1(), python_upstream_2()] >> python_downstream_1()
+    [bash_upstream_1, python_upstream_1(), python_upstream_2()] >> python_downstream_1()
