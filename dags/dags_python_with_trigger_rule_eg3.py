@@ -48,4 +48,4 @@ with DAG(
         trigger_rule = 'none_skipped'
     )
 
-    random_branch() >> [task_a, task_b(), task_c()] >> task_d()
+    random_branch() >> [task_a, task_b, task_c] >> task_d
