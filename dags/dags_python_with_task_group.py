@@ -6,7 +6,7 @@ from airflow.decorators import task_group
 from airflow.utils.task_group import TaskGroup
 
 with DAG(
-    dag_id= 'dags_python_with_task_group',
+    dag_id= "dags_python_with_task_group",
     schedule=None,
     start_date=pendulum.datetime(2025,4,1,tz="Asia/Seoul"),
     catchup=False
@@ -26,7 +26,7 @@ with DAG(
         inner_function2 = PythonOperator(
             task_id='inner_function2',
             python_callable=inner_func,
-            op_kwargs={'msg':'첫 번째 TaskGroup내 두 번재 task입니다.'}
+            op_kwargs={'msg':'첫 번째 TaskGroup내 두 번째 task입니다.'}
             
         )
 
