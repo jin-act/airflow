@@ -13,6 +13,7 @@ with DAG(
     tb_corona19_count_status = SeoulApiToCsvOperator(
         task_id='tb_corona19_count_status',
         dataset_nm='TbCorona19CountStatus',
+        #경로 확인 합시다! /opt와 opt는 다른거에요!
         path='/opt/airflow/files/TbCorona19CountStatus/{{data_interval_end.in_timezone("Asia/Seoul") | ds_nodash}}',
         file_name='TbCorona19CountStatus.csv'
     )
