@@ -26,6 +26,7 @@ class SeoulApiToCsvOperator(BaseOperator):
             self.log.info(f'시작:{start_row}')
             self.log.info(f'끝{end_row}')
             row_df = self._call_api(self.base_url, start_row, end_row)
+            #아래 부분 total_row_df,row_df부분을 {}중괄호로 덮었더니, 해시 문제가 발생했다고 하는데, 정확히 이해는 못 함
             total_row_df = pd.concat([total_row_df,row_df])
             if len(row_df) < 1000:
                 break
@@ -34,6 +35,7 @@ class SeoulApiToCsvOperator(BaseOperator):
                 end_row += 1000
 
         if not os.path.exists(self.path):
+            #실수 했었던 부분self.path 부분을 ()로 덮었더니, 텍스트로 취급한다고 함
             os.system(f'mkdir -p {self.path}')
         total_row_df.to_csv(self.path + '/' + self.file_name, encoding='utf-8', index=False)
 
@@ -48,11 +50,12 @@ class SeoulApiToCsvOperator(BaseOperator):
         request_url = f'{base_url}/{start_row}/{end_row}/'
         if self.base_dt is not None:
             request_url = f'{base_url}/{start_row}/{end_row}/{self.base_dt}'
-            response = requests.get(request_url,headers)
-            contents = json.loads(response.text)
 
-            key_nm = list(contents.keys())[0]
-            row_data = contents.get(key_nm).get('row')
-            row_df = pd.DataFrame(row_data)
+        response = requests.get(request_url, headers)
+        contents = json.loads(response.text)
 
-            return row_df
+        key_nm = list(contents.keys())[0]
+        row_data = contents.get(key_nm).get('row')
+        row_df = pd.DataFrame(row_data)
+
+        return row_df
